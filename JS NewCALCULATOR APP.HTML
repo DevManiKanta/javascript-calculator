@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY CALCULATOR APP</title>
+    <style>
+        .clac{
+            align-items: center;
+            justify-content:center;
+            margin-top:100px;
+            padding-left:600px;
+            background-color: rgb(14, 14, 12);
+            width: 300px;
+             border: 10px solid rgb(90, 5, 43);
+             padding: 50px;
+            margin: 20px;
+            border-radius:25px;
+            background-image: url('./rk\ beach\ images.jpg');
+            background-repeat: no-repeat;
+            background-attachment:fixed;
+            background-size: cover;
+        }
+
+        input{
+           width:300px;
+           height:100px;
+           font-size: xx-large;
+           border-radius: 10px;
+           color: rgb(255, 25, 0);
+           background-color: rgb(43, 186, 226);
+        }
+        h1{
+            color: brown;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+
+        }
+        button{
+            width: 66px;
+            padding: 20px;
+           margin: 0 3px;
+           border: 2px solid black;
+         border-radius: 9px;
+         cursor: pointer;
+         color: rgb(226, 43, 67);
+         font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="clac">
+        <center><h1><u>My Calculator</u></h1></center><br><b></b>
+        <div id="input"style="display:flex;">
+            <input type="text" class="input" id ="ip">
+        </div><br>
+    <div id ="but1" style="display:flex;">
+        <button style="flex:1;" class="button" >1</button><br><br>
+        <button style="flex:1;"  class="button">2</button>
+        <button style="flex:1;"  class="button">3</button>
+        <button style="flex:1;"  class="button">+</button>
+    </div><br>
+     <div id="but2" style="display:flex;">
+        <button style="flex:1;"  class="button">4</button><br><br>
+        <button style="flex:1;"  class="button">5</button>
+        <button style="flex:1;"  class="button">6</button>
+        <button style="flex:1;"  class="button">-</button>
+       </div><br>
+    <div id="but3" style="display:flex;">
+        <button style="flex:1;"  class="button">7</button><br><br>
+        <button style="flex:1;"  class="button">8</button>
+        <button style="flex:1;"  class="button">9</button>
+        <button style="flex:1;" class="button">*</button>
+    </div><br>
+    <div style="display:flex;">
+        <button style="flex:1;"  class="button">/</button><br><br>
+        <button style="flex:1;" class="button">0</button>
+        <button style="flex:1;"  class="button">=</button>
+        <button style="flex:1;" class="button">C</button>
+        <button style="flex:1;" onclick="ip.value = ip.value.toString().slice(0,-1)" >Del</button>
+        
+    </div>
+    
+</div>
+<script>
+    let string = "";
+let buttons = document.querySelectorAll('.button');
+Array.from(buttons).forEach((button)=>{
+  button.addEventListener('click', (e)=>{
+    if(e.target.innerHTML == '='){
+      string = eval(string);
+      document.querySelector('input').value = string;
+    }
+    else if(e.target.innerHTML == 'C'){
+      string = ""
+      document.querySelector('input').value = string;
+    }
+    else{ 
+    console.log(e.target)
+    string = string + e.target.innerHTML;
+    document.querySelector('input').value = string;
+      }
+  })
+})
+</script>
+</body>
+</html>
